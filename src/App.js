@@ -1,18 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './App.css';
-import layout from './components/layout/Layout';
+import Layout from './components/layout/Layout';
 import Timelog from './containers/Timelog/Timelog';
 
-class App extends Component {
-  render() {
+function App() {
   return (
     <div className="App">
-      <layout>
+      <Layout>
         <Timelog />
-      </layout>
+      </Layout>
     </div>
   );
-  }
 }
 
 export default App;
