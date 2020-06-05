@@ -4,6 +4,7 @@ import { storiesOf } from '@storybook/react';
 //import Layout from '../components/layout/Layout';
 //import Timelog from '../components/Timelog/Timelog';
 import Timelogs from '../containers/Timelog/Timelogs';
+import EntryForm from '../components/form/EntryForm';
 
 // const timelog = [
 //     {
@@ -30,6 +31,9 @@ storiesOf('Timelog', module)
             return <Timelogs />;
     }
 )
+
+
+storiesOf("Web-Journal", module).add("journal entry form", () => <EntryForm />);
 
 // storiesOf('General App Layout', module)
 //     .add('default',
