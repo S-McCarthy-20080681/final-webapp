@@ -1,14 +1,18 @@
 import React from 'react';
 import './App.css';
 import Layout from './components/layout/Layout';
-import Timelog from './containers/Timelog/Timelog';
+import Timelogs from './containers/Timelog/Timelogs';
+import '../node_modules/bootstrap/dist/css/bootstrap.css';
 
 function App() {
   return (
     <div className="App">
+      <h1 className="App-header">Online Journal</h1>
+    <div className="timelogs">
       <Layout>
-        <Timelog />
+        <Timelogs />
       </Layout>
+    </div>
     </div>
   );
 }

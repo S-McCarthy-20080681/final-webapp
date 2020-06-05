@@ -1,5 +1,18 @@
 .App {
-  text-align: center;
+  background-color: wheat;
 }
 
+.App-header {
+  background-color: wheat;
+  height: 90px;
+  padding: 15px;
+}
 
+.toolbar {
+  background-color: burlywood;
+  padding: 5px;
+}
+
+.timelogs {
+  padding: 10px;
+}
