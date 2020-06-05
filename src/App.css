@@ -1,5 +1,7 @@
-.App {
+.layout {
   background-color: wheat;
+  background-image: url('./background-image.jpg');
+  background-size: cover;
 }
 
 .App-header {
