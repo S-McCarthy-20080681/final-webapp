@@ -1,8 +1,14 @@
 import React, { Component } from "react";
 import './form.css';
+//let date = new Date();
 
-export default class EntryForm extends Component {
+class EntryForm extends Component {
+// constructor(props) {
+//     super(props);
+//     this.state = {value: `${date.getDate() + '/' + (date.getMonth() + 1) + '/' + date.getFullYear()}`};
+// }
     render() {
+
         return (
             <form>
                 <h3>Make an Entry:</h3>
@@ -12,8 +18,7 @@ export default class EntryForm extends Component {
                         placeholder="Title"></input>
                 </div>
                 <div className="form-group">
-                    <input type="text"
-                    placeholder="Date"></input>
+                    <input type="date"></input>
                 </div>
                 <div className="form-group">
                     <input type="text"
@@ -25,3 +30,5 @@ export default class EntryForm extends Component {
         );
     }
 }
+
+export default EntryForm;
