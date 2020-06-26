@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import './form.css';
 import '../../App.js';
 //new Date();
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 class EntryForm extends Component {
     constructor(props) {
@@ -31,7 +32,7 @@ class EntryForm extends Component {
         //assign an ID to each new journal entry
         const newEntry = {
             id: 1 + Math.random(),
-            value: this.state.newEntry.slice()
+            value: this.state.newEntry
         }; //CREATE section of CRUD functionality
 
 
@@ -82,13 +83,16 @@ class EntryForm extends Component {
             <ul>
                 {this.state.entries.map(entry => {
                     return(
+                        <div className="entryDisplay">
                         <li key={entry.id}>
                             {entry.value}
 
-                            <button 
-                            className="btn btn-danger"
-                            onClick={() => this.deleteEntry(entry.id)}>Delete Entry</button>
+                            <FontAwesomeIcon 
+                            className="deleteEntry"
+                            icon='trash'
+                            onClick={() => this.deleteEntry(entry.id)}></FontAwesomeIcon>
                         </li>
+                        </div>
                     )
                 })}
             </ul>

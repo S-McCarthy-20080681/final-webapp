@@ -4,13 +4,17 @@ import Layout from './components/Layout';
 import Timelogs from './containers/Timelog/Timelogs';
 import '../node_modules/bootstrap/dist/css/bootstrap.css';
 //import EntryForm from './components/form/EntryForm';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
+
+library.add(faTrash);
 
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state={
-      newEntry: "",
+      newEntry: {title: "", body: ""},
       entries: []
     }
   }
