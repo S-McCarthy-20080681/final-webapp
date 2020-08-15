@@ -16,10 +16,22 @@ class App extends Component {
     super(props);
 
     this.state={
-      newEntry: {title: "", body: ""},
+      // newEntry: {title: "", body: ""},
+      newEntry: "",
       entries: []
     }
   }
+
+  callAPI() {
+    fetch("http://localhost:9000/testAPI")
+        .then(res => res.text())
+        .then(res => this.setState({newEntry: res}));
+  }
+
+  componentWillMount() {
+    this.callAPI();
+  }
+
   render() {
     //let testEntries = stubAPI.getAll();
     const testEntries = [
@@ -43,6 +55,7 @@ class App extends Component {
             <entryDisplay posts={testEntries} />
             </Timelogs>
           </Layout>
+             <p className="App-intro">{this.state.newEntry}</p>
         </div>
     	);
   }
