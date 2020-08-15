@@ -2,6 +2,7 @@ import React from 'react';
 import '../App.css';
 import EntryForm from './form/EntryForm';
 import '../../node_modules/bootstrap/dist/css/bootstrap.css';
+import stubAPI from '../dataStore/stubAPI';
 
 const layout = (props) => (
     <div className="layout">
@@ -20,7 +21,10 @@ const layout = (props) => (
                 </div>
             </div>
 
-            <div className="col-md-10">
+{/* Removed the month-card display as I could not sort entries to appear
+    in the correct months. */}
+
+            {/* <div className="col-md-10">
                 <div className="toolbar">
                     <h3>Choose A Month</h3>
                         <p>Clicking on a month displays the entries for that month:</p>
@@ -30,7 +34,7 @@ const layout = (props) => (
 
             <main className="col-md-10">
                 {props.children}
-            </main>
+            </main> */}
         </div> 
     </div>
     </div>

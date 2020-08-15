@@ -1,15 +1,19 @@
-import React, { Component } from "react";
+import React, { Component, Fragment } from "react";
 import './form.css';
 import '../../App.js';
+import api from '../../dataStore/stubAPI.js';
+import entryDisplay from '../../entryDisplay.js';
 //new Date();
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import _ from "lodash";
 
 class EntryForm extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            newEntry: {title: "", body: ""},
+            newEntry: {body: ""},
+            // newEntry: {title: "", body: ""},
             //newEntryDate: Date,
             entries: []
         }
@@ -28,6 +32,11 @@ class EntryForm extends Component {
         this.setState({entries: afterDelete}); //changes original list of entries to updated list with deleted item removed
     }; //DELETE section of CRUD functionality
 
+    editEntry(id) {
+        let index = _.findIndex(this.entries, entry => entry.id === id);
+
+    };
+
     addEntry() {
         //assign an ID to each new journal entry
         const newEntry = {
@@ -41,12 +50,14 @@ class EntryForm extends Component {
 
         this.setState({
             entries,
-            newEntry: {title: "", body: ""}
+            // newEntry: {title: "", body: ""}
+            newEntry: {body: ""}
         });
     }
 
     render() {
-
+        let heading = this.state.entries.title;
+        let main = this.state.entries.body;
         return (
             <div className="Crud">
             <form>
@@ -81,7 +92,7 @@ class EntryForm extends Component {
                 </div>
             </form>
             <ul>
-                {this.state.entries.map(entry => {
+                {this.state.entries.map((entry, index) => {
                     return(
                         <div className="entryDisplay">
                         <li key={entry.id}>
@@ -92,6 +103,14 @@ class EntryForm extends Component {
                             icon='trash'
                             onClick={() => this.deleteEntry(entry.id)}></FontAwesomeIcon>
                         </li>
+                        <Fragment>
+                            <span>
+                                {heading}
+                            </span>
+                            <span>
+                                {main}
+                            </span>
+                        </Fragment>
                         </div>
                     )
                 })}
