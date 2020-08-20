@@ -1,16 +1,14 @@
-//import React, { Component } from 'react';
-//import app from './backend/app.js';
-//import testDataRouter from './backend/routes/testData.js';
-var testDataRouter = require("./backend/routes/testData.js");
-//import express from 'express';
-var express = require('express');
-var dotenv = require('dotenv');
-var React = require('react');
-var ReactDOM = require('react-dom');
-//import './index.css';
-var App = require('./src/App.js');
+import React, { Component } from 'react';
+import app from './backend/app.js';
+import testDataRouter from "./backend/routes/testData.js";
+import express from 'express';
+import dotenv from 'dotenv';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './src/App.js';
+import { BrowserRouter } from 'react-router-dom';
 //import * as serviceWorker from './serviceWorker';
-//import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 dotenv.config();
 
@@ -31,13 +29,13 @@ app.listen(port, () => {
 
 
 ReactDOM.render(
-  <React.StrictMode>
+    (<BrowserRouter>
     <App />
-  </React.StrictMode>,
+    </BrowserRouter>),
   document.getElementById('root')
 );
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+//serviceWorker.unregister();

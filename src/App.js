@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Layout from './components/Layout';
 import Timelogs from './containers/Timelog/Timelogs';
 import '../node_modules/bootstrap/dist/css/bootstrap.css';
@@ -8,6 +9,9 @@ import stubAPI from './dataStore/stubAPI.js';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import entryDisplay from './entryDisplay';
+
+import Home from './components/Home.js';
+import About from './components/About.js';
 
 library.add(faTrash);
 
@@ -48,8 +52,20 @@ class App extends Component {
     },
     ];
   return (
-    
+      <Router>
         <div className="timelogs">
+        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+          <ul className="navbar-nav mr-auto">
+            <li><Link to={'/'} className="nav-link">Main Page</Link></li>
+            <li><Link to={'/About'} className="nav-link">About This App</Link></li>
+          </ul>
+        </nav>
+        <hr />
+        <Switch>
+          <Route exact path='/' component={Home} />
+          <Route path='/about' component={About} />
+        </Switch>
+        {/* <div className="timelogs"> */}
           <Layout>
             <Timelogs >
             <entryDisplay posts={testEntries} />
@@ -57,6 +73,7 @@ class App extends Component {
           </Layout>
              <p className="App-intro">{this.state.newEntry}</p>
         </div>
+        </Router>
     	);
   }
 
