@@ -66,11 +66,11 @@ class App extends Component {
           <Route path='/about' component={About} />
         </Switch>
         {/* <div className="timelogs"> */}
-          <Layout>
+          {/* <Layout>
             <Timelogs >
             <entryDisplay posts={testEntries} />
             </Timelogs>
-          </Layout>
+          </Layout> */}
              <p className="App-intro">{this.state.newEntry}</p>
         </div>
         </Router>
