@@ -9,6 +9,7 @@ var usersRouter = require('./routes/users');
 var testAPIRouter = require("./routes/testAPI.js");
 var testDataRouter = require("./routes/testData.js");
 var app = express();
+const db = require('./db.js');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
