@@ -15,8 +15,9 @@ class EntryForm extends Component {
             newEntry: {body: ""},
             // newEntry: {title: "", body: ""},
             //newEntryDate: Date,
-            entries: []
-        }
+            entries: [],
+            entryCount: 0
+        };
     }
 
     updateInput(key, value) {
@@ -30,30 +31,40 @@ class EntryForm extends Component {
 
         const afterDelete = entries.filter(entry => entry.id !== id);
         this.setState({entries: afterDelete}); //changes original list of entries to updated list with deleted item removed
-    }; //DELETE section of CRUD functionality
+        this.state.entryCount = this.state.entryCount - 1;
+    }; //DELETE and UPDATE section of CRUD functionality
 
-    editEntry(id) {
-        let index = _.findIndex(this.entries, entry => entry.id === id);
-
-    };
+    // entryCount() {
+    //     var entryTotal = this.state.entries.length;
+    //     if(this.addEntry) {
+    //         entryTotal = entryTotal + 1;
+    //         return entryTotal;
+    //     } else if(this.deleteEntry) {
+    //         entryTotal = entryTotal - 1;
+    //         return entryTotal;
+    //     }
+    //     return entryTotal;
+    // }
 
     addEntry() {
         //assign an ID to each new journal entry
         const newEntry = {
             id: 1 + Math.random(),
             value: this.state.newEntry
-        }; //CREATE section of CRUD functionality
+        }; //CREATE and UPDATE section of CRUD functionality
 
 
         const entries = [...this.state.entries]; //the three dots (...) are a spread operator, to expand the 'entries' array into a list
         entries.push(newEntry);
+        this.state.entryCount = this.state.entryCount + 1;
 
         this.setState({
             entries,
-            // newEntry: {title: "", body: ""}
-            newEntry: {body: ""}
+            newEntry: {title: "", body: ""}
+            //newEntry: {body: ""}
         });
     }
+
 
     render() {
         let heading = this.state.entries.title;
@@ -115,6 +126,7 @@ class EntryForm extends Component {
                     )
                 })}
             </ul>
+            <p>Total Entries: {this.state.entryCount}</p>
         </div>
         );
     }

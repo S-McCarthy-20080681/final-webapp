@@ -41,3 +41,7 @@ storiesOf("Web-Journal", module).add("journal entry form", () => <EntryForm />);
 //         return <Layout />
 //     }
 // )
+
+storiesOf("Web-Journal/Entry Form/Add Entry", module).add("default", () => (
+    <EntryForm entry={entry} addTitleHandler={action("entry added")} />
+));

@@ -1,14 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
-import Layout from './components/Layout';
-import Timelogs from './containers/Timelog/Timelogs';
 import '../node_modules/bootstrap/dist/css/bootstrap.css';
-//import EntryForm from './components/form/EntryForm';
-import stubAPI from './dataStore/stubAPI.js';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
-import entryDisplay from './entryDisplay';
 
 import Home from './components/Home.js';
 import About from './components/About.js';
@@ -22,9 +17,11 @@ class App extends Component {
     this.state={
       // newEntry: {title: "", body: ""},
       newEntry: "",
-      entries: []
+      // entries: []
     }
   }
+
+  entries = [];
 
   callAPI() {
     fetch("http://localhost:9000/testAPI")
@@ -37,7 +34,6 @@ class App extends Component {
   }
 
   render() {
-    //let testEntries = stubAPI.getAll();
     const testEntries = [
       {
         id: 1,
@@ -65,12 +61,6 @@ class App extends Component {
           <Route exact path='/' component={Home} />
           <Route path='/about' component={About} />
         </Switch>
-        {/* <div className="timelogs"> */}
-          {/* <Layout>
-            <Timelogs >
-            <entryDisplay posts={testEntries} />
-            </Timelogs>
-          </Layout> */}
              <p className="App-intro">{this.state.newEntry}</p>
         </div>
         </Router>
