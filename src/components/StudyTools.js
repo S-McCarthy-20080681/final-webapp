@@ -7,6 +7,7 @@ class StudyTools extends Component {
         return (
             <div>
                 <h2>Study Tools</h2>
+                <div className="pageBackground">
                 <br />
                 <h4>This is a list of references I used, alongside class notes and labs, to teach me 
                     how to create and implement various parts of 
@@ -33,6 +34,7 @@ class StudyTools extends Component {
                 <li><a href={'https://medium.com/swlh/how-to-create-your-first-mern-mongodb-express-js-react-js-and-node-js-stack-7e8b20463e66'}>Integrating Mongo 1</a></li>
                 <li><a href={'https://zellwk.com/blog/crud-express-mongodb/'}>Integrating Mongo 2</a></li>
                 <br />
+                </div>
             </div>
         );
     }
