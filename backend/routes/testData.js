@@ -1,5 +1,4 @@
 var express = require("express");
-//import {testData} from './testEntries.js';
 const testData = require('./testEntries.js')
 var router = express.Router();
 

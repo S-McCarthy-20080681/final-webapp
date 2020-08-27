@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import Layout from './Layout.js';
 import Timelogs from '../containers/Timelog/Timelogs.js';
-//import Timelog from './Timelog/Timelog.js';
 import entryDisplay from '../entryDisplay.js';
 import './form/EntryForm.js';
 import '../App.js';
-//import EntryForm from './form/EntryForm.js';
-import entryCount from './form/EntryForm.js'
 
 class Home extends Component {
     render() {
@@ -18,7 +15,6 @@ class Home extends Component {
             <entryDisplay />
             </Timelogs>
           </Layout>
-          {/* <p>Total Entries: {entryCount}</p> */}
             </div>
         );
     }

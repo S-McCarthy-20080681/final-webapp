@@ -1,8 +1,6 @@
 import React, { Component, Fragment } from "react";
 import './form.css';
 import '../../App.js';
-import api from '../../dataStore/stubAPI.js';
-import entryDisplay from '../../entryDisplay.js';
 //new Date();
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import _ from "lodash";
@@ -24,7 +22,7 @@ class EntryForm extends Component {
         this.setState({
             [key]: value
         });
-    } //UPDATE section of CRUD functionality
+    } 
 
     deleteEntry(id) {
         const entries = [...this.state.entries];
@@ -33,18 +31,6 @@ class EntryForm extends Component {
         this.setState({entries: afterDelete}); //changes original list of entries to updated list with deleted item removed
         this.state.entryCount = this.state.entryCount - 1;
     }; //DELETE and UPDATE section of CRUD functionality
-
-    // entryCount() {
-    //     var entryTotal = this.state.entries.length;
-    //     if(this.addEntry) {
-    //         entryTotal = entryTotal + 1;
-    //         return entryTotal;
-    //     } else if(this.deleteEntry) {
-    //         entryTotal = entryTotal - 1;
-    //         return entryTotal;
-    //     }
-    //     return entryTotal;
-    // }
 
     addEntry() {
         //assign an ID to each new journal entry

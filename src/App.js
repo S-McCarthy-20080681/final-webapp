@@ -7,6 +7,7 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 import Home from './components/Home.js';
 import About from './components/About.js';
+import StudyTools from './components/StudyTools.js';
 
 library.add(faTrash);
 
@@ -54,12 +55,14 @@ class App extends Component {
           <ul className="navbar-nav mr-auto">
             <li><Link to={'/'} className="nav-link">Main Page</Link></li>
             <li><Link to={'/About'} className="nav-link">About This App</Link></li>
+            <li><Link to={'/StudyTools'} className="nav-link">Study Tools</Link></li>
           </ul>
         </nav>
         <hr />
         <Switch>
           <Route exact path='/' component={Home} />
           <Route path='/about' component={About} />
+          <Route path='/studytools' component={StudyTools} />
         </Switch>
              <p className="App-intro">{this.state.newEntry}</p>
         </div>
